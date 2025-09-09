@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat Your Brain - Activate Your Brain Power</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .problem-section {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .problem-section h2 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .problem-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .problem-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .problem-list li:before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+        }
+        
+        .solution-section {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .solution-section h2 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefits-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .benefits-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            font-size: 24px;
+            opacity: 0.7;
+            margin-right: 10px;
+        }
+        
+        .discount {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 50px;
+            font-size: 16px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background-color: white;
+            color: #667eea;
+        }
+        
+        .testimonials {
+            background-color: #f8f9fa;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .guarantee {
+            background-color: #e8f5e8;
+            border: 2px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .guarantee h3 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .urgency {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 0;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .content, .cta-section {
+                padding: 20px 15px;
+            }
+            
+            .price {
+                font-size: 36px;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🧠 Beat Your Brain</h1>
+            <div class="subtitle">Activate Your Brain Power with Rhythmic Neuro Games</div>
+        </div>
+        
+        <!-- Urgency Banner -->
+        <div class="urgency">
+            ⏰ LIMITED TIME: 90% OFF - Only $19 (Was $190) - Sale Ends in 2 Hours!
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Problem Section -->
+            <div class="problem-section">
+                <h2>Are You Struggling With These Brain Issues?</h2>
+                <ul class="problem-list">
+                    <li>Waking up feeling foggy and unfocused</li>
+                    <li>Memory slips that worry you about aging</li>
+                    <li>Stress and anxiety affecting your mental clarity</li>
+                    <li>Difficulty concentrating on important tasks</li>
+                    <li>Feeling mentally drained and unmotivated</li>
+                    <li>Worried about cognitive decline as you age</li>
+                </ul>
+            </div>
+            
+            <!-- Solution Section -->
+            <div class="solution-section">
+                <h2>Introducing Rhythmic Neuro Games - Your Brain's Best Friend!</h2>
+                <p style="font-size: 18px; margin-bottom: 20px; font-weight: bold;">
+                    Science-backed body percussion exercises that activate your brain in just minutes a day!
+                </p>
+                <ul class="benefits-list">
+                    <li>Keep your brain sharp & young at any age</li>
+                    <li>Develop concentration and creativity naturally</li>
+                    <li>Melt stress & clear brain fog in minutes</li>
+                    <li>Boost memory & focus with every beat</li>
+                    <li>Feel energized & mentally awake every day</li>
+                    <li>Improve coordination and mental flexibility</li>
+                    <li>Strengthen your brain against aging naturally</li>
+                </ul>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h2 style="text-align: center; margin-bottom: 30px; color: #333;">What Our Students Say</h2>
+                
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">
+                        "I used to walk into rooms and blank out. Since starting Rhythmic Neuro Games, I feel alert and focused. It's wild how simple rhythms can bring back my clarity!"
+                    </div>
+                    <div class="testimonial-author">- Lisa K.</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">
+                        "Stress and brain fog were wearing me down, but after a week of these games, I'm sharper and energized. I can finally think straight again!"
+                    </div>
+                    <div class="testimonial-author">- Sandra L.</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">
+                        "At 40, I was scared of aging and forgetting, but this course proved I can stay sharp and calm. I feel younger and more in control!"
+                    </div>
+                    <div class="testimonial-author">- Janet L.</div>
+                </div>
+            </div>
+            
+            <!-- Course Details -->
+            <div style="background-color: #f8f9fa; padding: 30px; margin: 20px 0; border-radius: 8px;">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #333;">What You'll Get in This Course</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <h3 style="color: #667eea; margin-bottom: 10px;">📚 18 Video Lessons</h3>
+                        <p>Step-by-step guidance from professional musicians</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #667eea; margin-bottom: 10px;">⏰ Unlimited Access</h3>
+                        <p>Learn at your own pace, anytime, anywhere</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #667eea; margin-bottom: 10px;">🎯 4 Modules</h3>
+                        <p>From basic rhythms to advanced polyrhythms</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #667eea; margin-bottom: 10px;">🧠 Brain Training</h3>
+                        <p>Science-backed exercises for mental sharpness</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Guarantee -->
+            <div class="guarantee">
+                <h3>🛡️ 14-Day Money-Back Guarantee</h3>
+                <p>We're so confident you'll love this course that we offer a full refund if you're not completely satisfied within 14 days. No questions asked!</p>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Transform Your Brain?</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;">
+                Join 16,843+ people who have already activated their brain power!
+            </p>
+            
+            <div class="price">
+                <span class="original-price">$190</span>
+                <span style="color: #ff6b6b;">$19</span>
+            </div>
+            
+            <div class="discount">90% OFF - Limited Time!</div>
+            
+            <a href="https://newmindstart.com/beat-your-brain-rhythmic-neuro-games?utm_source=email&utm_medium=newsletter&utm_campaign=brain_games_sale&utm_content=main_cta" class="cta-button">
+                🚀 GET INSTANT ACCESS NOW
+            </a>
+            
+            <div style="margin-top: 20px;">
+                <a href="https://newmindstart.com/beat-your-brain-rhythmic-neuro-games?utm_source=email&utm_medium=newsletter&utm_campaign=brain_games_sale&utm_content=learn_more" class="secondary-button">
+                    Learn More About the Course
+                </a>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.9;">
+                ⏰ Sale ends in 2 hours - Don't miss out on this incredible offer!
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Questions? Contact us at <a href="mailto:support@newmindstart.com">support@newmindstart.com</a></p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                You're receiving this email because you subscribed to our newsletter.<br>
+                <a href="#">Unsubscribe</a> | <a href="#">Update Preferences</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
